@@ -1,2 +1,158 @@
-# ecommerce-churn-analytics
-Full-stack e-commerce analytics: BI dashboard + ML-powered churn prediction
+# 🛒 E-Commerce Analytics: Full-Stack BI & ML Platform
+
+A comprehensive end-to-end data analytics solution combining business intelligence dashboards with machine learning-powered customer churn prediction. This project analyzes 100,000+ e-commerce transactions to identify customer retention opportunities and predict future behavior.
+
+---
+
+## 🚀 Live Demo
+
+**Try the interactive churn prediction app:**  
+👉 **[Live Streamlit App](https://ecommerce-churn-analytics-u45usylntzbncyugay95mn.streamlit.app/)**
+
+---
+
+## 📊 Project Overview
+
+This full-stack analytics platform answers two critical business questions:
+1. **What happened?** (Business Intelligence Dashboard)
+2. **What will happen?** (Predictive ML Application)
+
+### Key Achievements
+- 🎯 Identified **$8M customer retention opportunity** (40K at-risk customers)
+- 📉 Uncovered critical **3.1% repeat purchase rate** requiring immediate strategy
+- 🤖 Built ML model with **85%+ accuracy** for real-time churn predictions
+- 📊 Created executive dashboard with **8 KPIs** and **5 interactive visualizations**
+
+---
+
+## 🏗️ Architecture
+```
+📦 Raw Data (9 CSV files - 100K+ transactions)
+    ↓
+🐍 Python ETL Pipeline
+    ├─ merge_data.py (Data Integration)
+    ├─ explore_clean.py (Feature Engineering)
+    └─ train_models.py (ML Training)
+    ↓
+🗄️ PostgreSQL Database
+    ├─ olist_orders
+    ├─ olist_customers
+    └─ customer_rfm_data
+    ↓
+    ├──→ 📊 Metabase BI Dashboard
+    │    • Revenue Analysis
+    │    • Geographic Insights
+    │    • RFM Segmentation
+    │
+    └──→ 🤖 ML Models (Scikit-learn + Prophet)
+         • Random Forest Churn Classifier
+         • Sales Forecasting
+         ↓
+         🎯 Streamlit Web App (Deployed)
+         • Real-time Predictions
+         • Customer Benchmarking
+         • Actionable Recommendations
+```
+
+---
+
+## 📸 Screenshots
+
+### Business Intelligence Dashboard (Metabase)
+![Metabase Dashboard](dashboard_combined.png)
+
+**Key Features:**
+- 8 Executive KPIs (Total Revenue, AOV, Customer Count, etc.)
+- Monthly Revenue Trends
+- Top 10 Product Categories
+- RFM Customer Segmentation
+- Geographic Sales Analysis
+- Interactive filters by State & Payment Type
+
+---
+
+### Predictive Churn Application (Streamlit)
+
+#### Main Interface
+![Streamlit Main](1763136371724_image.png)
+
+#### High Risk Prediction
+![High Risk](1763136492632_image.png)
+
+#### Low Risk Prediction
+![Low Risk](1763136582536_image.png)
+
+#### Customer Segment Analysis
+![Segments](1763136845192_image.png)
+
+---
+
+## 💻 Tech Stack
+
+### Data Engineering & ML
+- **Python 3.x** - Core programming language
+- **Pandas** - Data manipulation and ETL
+- **Scikit-learn** - Machine learning (Random Forest)
+- **Prophet** - Time series forecasting
+- **Joblib** - Model serialization
+
+### Database & BI
+- **PostgreSQL** - Relational database
+- **SQLAlchemy** - Database ORM
+- **pgAdmin 4** - Database management
+- **Metabase** (Docker) - BI dashboards
+
+### Web Application
+- **Streamlit** - Web framework
+- **Plotly** - Interactive visualizations
+- **Streamlit Cloud** - Deployment platform
+
+---
+
+## 🎯 Key Features
+
+### 1. Business Intelligence Dashboard
+- **8 Executive KPIs** tracked in real-time
+- **RFM Customer Segmentation** (Champions, Loyal, At Risk, Lost)
+- **Geographic Analysis** across Brazilian states
+- **Revenue Trends** with month-over-month comparison
+- **Category Performance** drill-downs
+- **Interactive Filters** for dynamic analysis
+
+### 2. Churn Prediction Application
+- **Real-time ML Predictions** using Random Forest
+- **Risk Scoring** with visual gauge (0-100%)
+- **Customer Benchmarking** against database
+- **Segment Classification** (6 customer types)
+- **Actionable Recommendations** for retention
+- **Distribution Analysis** (Recency, Frequency, Monetary)
+
+---
+
+
+
+---
+
+## 📊 Data Source
+
+**Olist E-Commerce Dataset**  
+- Source: [Kaggle](https://www.kaggle.com/olistbr/brazilian-ecommerce)
+- Size: 100,000+ orders from 2016-2018
+- Geography: Brazil
+- Files: 9 CSV files (orders, customers, products, payments, reviews, etc.)
+
+---
+
+---
+
+## 🚀 Future Enhancements
+
+- [ ] Add A/B testing framework for retention strategies
+- [ ] Implement real-time data pipeline with Apache Kafka
+- [ ] Deploy on AWS with automated retraining
+- [ ] Add customer lifetime value (CLV) prediction
+- [ ] Build recommendation engine for cross-selling
+- [ ] Create mobile-responsive dashboard
+
+
+--
