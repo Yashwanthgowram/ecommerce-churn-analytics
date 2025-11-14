@@ -13,7 +13,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# --- ELEGANT RED CSS WITH PROPER CONTRAST ---
+# --- ELEGANT RED CSS ---
 st.markdown("""
     <style>
     /* Red gradient background */
@@ -96,7 +96,7 @@ st.markdown("""
         font-size: 18px !important;
     }
     
-    /* Sidebar - red gradient with WHITE TEXT */
+    /* Sidebar */
     [data-testid="stSidebar"] {
         background: linear-gradient(180deg, #dc2626 0%, #ef4444 100%);
     }
@@ -105,34 +105,33 @@ st.markdown("""
     [data-testid="stSidebar"] h3,
     [data-testid="stSidebar"] p,
     [data-testid="stSidebar"] label,
-    [data-testid="stSidebar"] .stMarkdown,
-    [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] {
+    [data-testid="stSidebar"] .stMarkdown {
         color: white !important;
     }
     
-    /* CRITICAL: Make selectboxes WHITE with dark text */
+    /* White selectboxes with dark text */
     [data-testid="stSidebar"] .stSelectbox > div > div {
         background-color: white !important;
         color: #1f2937 !important;
-        border: 2px solid #fca5a5 !important;
+        border: 1px solid #d1d5db !important; 
         border-radius: 8px !important;
     }
     
     [data-testid="stSidebar"] .stSelectbox label {
         color: white !important;
         font-weight: 600 !important;
+        font-size: 14px !important;
     }
     
     [data-testid="stSidebar"] input {
         background-color: white !important;
         color: #1f2937 !important;
-        border: 2px solid #fca5a5 !important;
+        border: 1px solid #d1d5db !important;
     }
     
-    /* Dropdown options styling */
-    [data-baseweb="select"] > div {
-        background-color: white !important;
-        color: #1f2937 !important;
+    /* HIDE THE QUESTION MARK ICONS */
+    [data-testid="stSidebar"] button[kind="icon"] {
+        display: none !important;
     }
     
     /* Button styling */
@@ -165,9 +164,8 @@ st.markdown("""
     }
     
     /* Dataframe styling */
-    .dataframe {
-        border: 2px solid #fca5a5;
-        border-radius: 10px;
+    .dataframe tbody tr:empty {
+        display: none;
     }
     </style>
 """, unsafe_allow_html=True)
@@ -193,7 +191,7 @@ def load_rfm_data():
 
 rfm_data = load_rfm_data()
 
-# --- SIDEBAR WITH DROPDOWNS ---
+# --- SIDEBAR ---
 with st.sidebar:
     st.markdown("<h2 style='text-align: center;'>🎯 Customer Profile</h2>", unsafe_allow_html=True)
     st.markdown("<p style='text-align: center; font-size: 14px;'>Select customer parameters</p>", unsafe_allow_html=True)
@@ -201,8 +199,7 @@ with st.sidebar:
     
     customer_id = st.text_input(
         "📝 Customer ID",
-        value="CUST-" + datetime.now().strftime("%Y%m%d"),
-        help="Enter unique customer identifier"
+        value="CUST-" + datetime.now().strftime("%Y%m%d")
     )
     
     st.markdown("### 📊 RFM Parameters")
@@ -219,8 +216,7 @@ with st.sidebar:
     recency_label = st.selectbox(
         "📅 Recency",
         options=list(recency_options.keys()),
-        index=3,
-        help="Days since last purchase"
+        index=3
     )
     recency = recency_options[recency_label]
     
@@ -236,8 +232,7 @@ with st.sidebar:
     frequency_label = st.selectbox(
         "🔄 Frequency",
         options=list(frequency_options.keys()),
-        index=1,
-        help="Total number of orders"
+        index=1
     )
     frequency = frequency_options[frequency_label]
     
@@ -253,8 +248,7 @@ with st.sidebar:
     monetary_label = st.selectbox(
         "💰 Monetary",
         options=list(monetary_options.keys()),
-        index=1,
-        help="Total lifetime value"
+        index=1
     )
     monetary = monetary_options[monetary_label]
     
@@ -282,7 +276,7 @@ segment, segment_icon = get_segment(recency, frequency, monetary)
 st.markdown("<h1>🎯 Customer Churn Intelligence Platform</h1>", unsafe_allow_html=True)
 st.markdown("<p style='text-align: center; font-size: 18px; color: #6b7280; margin-bottom: 30px;'>AI-Powered Predictive Analytics for Customer Retention</p>", unsafe_allow_html=True)
 
-# --- CURRENT SELECTION SUMMARY ---
+# --- METRICS ---
 st.markdown("### 📋 Current Customer Profile")
 col1, col2, col3, col4 = st.columns(4)
 
@@ -388,7 +382,7 @@ if predict_button:
                     """)
         
         with col2:
-            # Red-themed gauge
+            # Red gauge
             fig_gauge = go.Figure(go.Indicator(
                 mode="gauge+number",
                 value=churn_prob,
@@ -447,21 +441,21 @@ if predict_button:
             
             with col1:
                 st.metric("📅 Recency Percentile", f"{r_pct:.0f}th",
-                         "Above Average" if r_pct > 50 else "Below Average")
+                          "Above Average" if r_pct > 50 else "Below Average")
             
             with col2:
                 st.metric("🔄 Frequency Percentile", f"{f_pct:.0f}th",
-                         "Above Average" if f_pct > 50 else "Below Average")
+                          "Above Average" if f_pct > 50 else "Below Average")
             
             with col3:
                 st.metric("💰 Monetary Percentile", f"{m_pct:.0f}th",
-                         "Above Average" if m_pct > 50 else "Below Average")
+                          "Above Average" if m_pct > 50 else "Below Average")
             
             st.markdown("")
             
             col1, col2, col3 = st.columns(3)
             
-            # Red-themed histograms
+            # Red histograms
             with col1:
                 fig = go.Figure()
                 fig.add_trace(go.Histogram(
@@ -471,7 +465,7 @@ if predict_button:
                     showlegend=False
                 ))
                 fig.add_vline(x=recency, line_width=3, line_color="#991b1b", 
-                             annotation_text="Current", annotation_position="top")
+                              annotation_text="Current", annotation_position="top")
                 fig.update_layout(
                     title="<b>Recency Distribution</b>",
                     height=260,
@@ -493,7 +487,7 @@ if predict_button:
                     showlegend=False
                 ))
                 fig.add_vline(x=frequency, line_width=3, line_color="#991b1b",
-                             annotation_text="Current", annotation_position="top")
+                              annotation_text="Current", annotation_position="top")
                 fig.update_layout(
                     title="<b>Frequency Distribution</b>",
                     height=260,
@@ -515,7 +509,7 @@ if predict_button:
                     showlegend=False
                 ))
                 fig.add_vline(x=monetary, line_width=3, line_color="#991b1b",
-                             annotation_text="Current", annotation_position="top")
+                              annotation_text="Current", annotation_position="top")
                 fig.update_layout(
                     title="<b>Monetary Distribution</b>",
                     height=260,
@@ -533,59 +527,85 @@ st.markdown("---")
 st.markdown("## 🔍 Customer Segment Overview")
 
 if rfm_data is not None:
-    rfm_data['Segment'] = rfm_data.apply(
-        lambda row: get_segment(row['Recency'], row['Frequency'], row['Monetary'])[0],
-        axis=1
-    )
+    def classify_segment(row):
+        r, f, m = row['Recency'], row['Frequency'], row['Monetary']
+        if r <= 30 and f >= 7 and m >= 1000:
+            return "Champions"
+        elif r <= 60 and f >= 4 and m >= 500:
+            return "Loyal Customers"
+        elif r <= 90 and f >= 2 and m >= 300:
+            return "Potential Loyalists"
+        elif r > 180 and f >= 4:
+            return "At Risk"
+        elif r > 180:
+            return "Lost Customers"
+        else:
+            return "New Customers"
     
-    segment_summary = rfm_data.groupby('Segment').agg({
+    rfm_data['Segment'] = rfm_data.apply(classify_segment, axis=1)
+    
+    segment_stats = rfm_data.groupby('Segment', as_index=False).agg({
         'Recency': 'mean',
         'Frequency': 'mean',
         'Monetary': 'mean',
         'customer_unique_id': 'count'
     }).round(0)
-    segment_summary.columns = ['Avg Recency (days)', 'Avg Frequency', 'Avg Monetary ($)', 'Total Customers']
-    segment_summary = segment_summary.sort_values('Total Customers', ascending=False)
+    
+    segment_stats.columns = ['Segment', 'Avg Recency (days)', 'Avg Frequency', 'Avg Monetary ($)', 'Total Customers']
+    
+    segment_stats = segment_stats.sort_values('Total Customers', ascending=False)
+    
+    segment_stats = segment_stats.dropna()
+    segment_stats = segment_stats[segment_stats['Total Customers'] > 0]
+    
+    segment_stats.index = range(1, len(segment_stats) + 1)
+    segment_stats.index.name = 'No.'
     
     col1, col2 = st.columns([1.5, 1], gap="large")
     
     with col1:
         st.markdown("### 📋 Segment Performance Metrics")
+        
         st.dataframe(
-            segment_summary.style.format({
+            segment_stats.style.format({
                 'Avg Recency (days)': '{:.0f}',
                 'Avg Frequency': '{:.0f}',
                 'Avg Monetary ($)': '${:.0f}',
                 'Total Customers': '{:,.0f}'
             }),
             use_container_width=True,
-            height=300
         )
     
     with col2:
         st.markdown("### 🥧 Distribution by Segment")
-        # Red-themed pie chart
+        
+        segment_counts = rfm_data['Segment'].value_counts().sort_values(ascending=False)
+        
         fig = px.pie(
-            rfm_data,
-            names='Segment',
+            values=segment_counts.values,
+            names=segment_counts.index,
             hole=0.45,
             color_discrete_sequence=['#991b1b', '#b91c1c', '#dc2626', '#ef4444', '#f87171', '#fca5a5']
         )
+        
         fig.update_traces(
             textposition='inside',
             textinfo='percent+label',
-            textfont_size=11,
-            textfont_color='white'
+            textfont_size=12,
+            textfont_color='white',
+            marker=dict(line=dict(color='white', width=2))
         )
+        
         fig.update_layout(
-            height=300,
-            margin=dict(l=0, r=0, t=0, b=0),
+            height=400,
+            margin=dict(l=0, r=0, t=20, b=20),
             showlegend=False,
             paper_bgcolor="rgba(255,255,255,0.95)"
         )
+        
         st.plotly_chart(fig, use_container_width=True)
 
-# --- FOOTER ---
+
 st.markdown("---")
 st.markdown("""
     <div style='text-align: center; padding: 25px; background: rgba(255,255,255,0.95); 
