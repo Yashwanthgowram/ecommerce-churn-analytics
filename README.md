@@ -59,7 +59,8 @@ This full-stack analytics platform answers two critical business questions:
 ## 📸 Screenshots
 
 ### Business Intelligence Dashboard (Metabase)
-![Metabase Dashboard](dashboard_combined.png)
+<img width="853" height="1400" alt="image" src="https://github.com/user-attachments/assets/b9c05b4c-6334-4a8d-b357-83c65d67c821" />
+
 
 **Key Features:**
 - 8 Executive KPIs (Total Revenue, AOV, Customer Count, etc.)
@@ -74,16 +75,16 @@ This full-stack analytics platform answers two critical business questions:
 ### Predictive Churn Application (Streamlit)
 
 #### Main Interface
-![Streamlit Main](1763136371724_image.png)
+<img width="853" height="1400" alt="image" src="https://github.com/user-attachments/assets/3b1f5aed-67f9-4f1d-b771-9887603a5587" />
 
 #### High Risk Prediction
-![High Risk](1763136492632_image.png)
+<img width="1512" height="807" alt="image" src="https://github.com/user-attachments/assets/07c9fa4b-810e-4edc-8b9f-bb353f4b8b9d" />
 
 #### Low Risk Prediction
-![Low Risk](1763136582536_image.png)
+<img width="1512" height="807" alt="image" src="https://github.com/user-attachments/assets/63a59ffe-8092-422f-abd9-7ff045456965" />
 
 #### Customer Segment Analysis
-![Segments](1763136845192_image.png)
+<img width="1568" height="738" alt="image" src="https://github.com/user-attachments/assets/7553061e-590f-43fd-820a-518e8adb2932" />
 
 ---
 
@@ -142,17 +143,3 @@ This full-stack analytics platform answers two critical business questions:
 - Files: 9 CSV files (orders, customers, products, payments, reviews, etc.)
 
 ---
-
----
-
-## 🚀 Future Enhancements
-
-- [ ] Add A/B testing framework for retention strategies
-- [ ] Implement real-time data pipeline with Apache Kafka
-- [ ] Deploy on AWS with automated retraining
-- [ ] Add customer lifetime value (CLV) prediction
-- [ ] Build recommendation engine for cross-selling
-- [ ] Create mobile-responsive dashboard
-
-
---
