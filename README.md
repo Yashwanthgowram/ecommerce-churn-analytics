@@ -1,13 +1,13 @@
-# 🛒 E-Commerce Analytics: Full-Stack BI & ML Platform
+# E-Commerce Analytics: Full-Stack BI & ML Platform
 
 A comprehensive end-to-end data analytics solution combining business intelligence dashboards with machine learning-powered customer churn prediction. This project analyzes 100,000+ e-commerce transactions to identify customer retention opportunities and predict future behavior.
 
 ---
 
-## 🚀 Live Demo
+##  Live Demo
 
 **Try the interactive churn prediction app:**  
-👉 **[Live Streamlit App](https://ecommerce-churn-analytics-u45usylntzbncyugay95mn.streamlit.app/)**
+**[Live Streamlit App](https://ecommerce-churn-analytics-u45usylntzbncyugay95mn.streamlit.app/)**
 
 ---
 
