@@ -75,13 +75,13 @@ This full-stack analytics platform answers two critical business questions:
 ### Predictive Churn Application (Streamlit)
 
 #### Main Interface
-<img width="853" height="1400" alt="image" src="https://github.com/user-attachments/assets/3b1f5aed-67f9-4f1d-b771-9887603a5587" />
+<img width="1456" height="819" alt="image" src="https://github.com/user-attachments/assets/68fc1cc6-4c2e-4d2c-ac5c-4dd09d7343c0" />
 
 #### High Risk Prediction
 <img width="1512" height="807" alt="image" src="https://github.com/user-attachments/assets/07c9fa4b-810e-4edc-8b9f-bb353f4b8b9d" />
 
 #### Low Risk Prediction
-<img width="1512" height="807" alt="image" src="https://github.com/user-attachments/assets/63a59ffe-8092-422f-abd9-7ff045456965" />
+<img width="1512" height="803" alt="image" src="https://github.com/user-attachments/assets/4d75c214-40eb-49e7-b3d8-aa9d3434405e" />
 
 #### Customer Segment Analysis
 <img width="1568" height="738" alt="image" src="https://github.com/user-attachments/assets/7553061e-590f-43fd-820a-518e8adb2932" />
