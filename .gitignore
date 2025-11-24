@@ -1,0 +1,349 @@
+# E-Commerce Churn Analytics - Git Ignore File
+
+# ============================================================================
+# PYTHON
+# ============================================================================
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# Virtual environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# ============================================================================
+# DATA FILES
+# ============================================================================
+
+# Raw CSV data files (large files - don't commit to Git)
+*.csv
+
+# Allow specific documentation CSVs if needed
+# !sample_data.csv
+
+# Excel files
+*.xlsx
+*.xls
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Backup files
+*.bak
+*.backup
+
+# ============================================================================
+# MACHINE LEARNING MODELS
+# ============================================================================
+
+# Trained model files (can be large)
+*.pkl
+*.pickle
+*.h5
+*.hdf5
+*.pt
+*.pth
+*.joblib
+
+# Allow small example models if needed
+# !example_model.pkl
+
+# Model checkpoints
+checkpoints/
+*.ckpt
+
+# TensorFlow
+*.pb
+
+# ============================================================================
+# LOGS & TEMPORARY FILES
+# ============================================================================
+
+# Log files
+*.log
+logs/
+*.out
+
+# Temporary files
+*.tmp
+*.temp
+~$*
+
+# ============================================================================
+# ENVIRONMENT & SECRETS
+# ============================================================================
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+.envrc
+
+# Secrets and credentials
+secrets.json
+credentials.json
+*.key
+*.pem
+*.crt
+
+# Config files with secrets (be careful!)
+config.ini
+database.ini
+
+# ============================================================================
+# IDE & EDITORS
+# ============================================================================
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# PyCharm
+.idea/
+*.iml
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# ============================================================================
+# OPERATING SYSTEMS
+# ============================================================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Linux
+.directory
+.Trash-*
+
+# ============================================================================
+# METABASE
+# ============================================================================
+
+# Metabase data directory
+metabase.db/
+metabase.db.mv.db
+metabase.db.trace.db
+
+# Metabase logs
+metabase.log
+
+# ============================================================================
+# POSTGRESQL
+# ============================================================================
+
+# PostgreSQL data directory (if running locally)
+postgres_data/
+pg_data/
+
+# SQL dump files (can be large)
+*.sql
+*.dump
+
+# ============================================================================
+# STREAMLIT
+# ============================================================================
+
+# Streamlit cache
+.streamlit/
+*.streamlit/
+
+# ============================================================================
+# DOCKER
+# ============================================================================
+
+# Docker volumes
+docker-compose.override.yml
+.dockerignore
+
+# ============================================================================
+# DOCUMENTATION
+# ============================================================================
+
+# Compiled documentation
+docs/_build/
+site/
+
+# LaTeX
+*.aux
+*.lof
+*.lot
+*.fls
+*.toc
+*.fmt
+*.fot
+*.cb
+*.cb2
+*.dvi
+*.xdv
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.synctex.gz
+
+# ============================================================================
+# PROJECT SPECIFIC
+# ============================================================================
+
+# Large merged dataset
+olist_master_dataset.csv
+
+# RFM analysis output
+customer_rfm_data.csv
+
+# Forecasting data
+daily_sales_forecast_data.csv
+sales_forecast_output.csv
+
+# Trained models
+churn_model.pkl
+sales_model.pkl
+
+# Metabase JAR (large file - download separately)
+metabase.jar
+
+# Test data
+test_data/
+sample_predictions/
+
+# Experiments
+experiments/
+notebooks/scratch/
+
+# ============================================================================
+# KEEP THESE FILES (IMPORTANT!)
+# ============================================================================
+
+# Keep README and documentation
+!README.md
+!DOCUMENTATION.md
+!DATA_DICTIONARY.md
+!ARCHITECTURE.md
+!DEPLOYMENT_GUIDE.md
+!MODEL_DOCUMENTATION.md
+
+# Keep Python scripts
+!*.py
+
+# Keep requirements file
+!requirements.txt
+
+# Keep license
+!LICENSE
+
+# Keep gitignore itself
+!.gitignore
+
+# Keep architecture diagram text
+!architecture.drawio/
+
+# ============================================================================
+# NOTES
+# ============================================================================
+
+# This .gitignore is configured for an ML/Data Science project
+#
+# Key exclusions:
+# 1. Large CSV data files (download from Kaggle separately)
+# 2. Trained models (.pkl files are large and can be regenerated)
+# 3. Metabase JAR (download separately)
+# 4. Database files and credentials
+# 5. Virtual environments and cache files
+#
+# To force-add an excluded file: git add -f filename
+# To check what's ignored: git check-ignore *
